@@ -1,0 +1,55 @@
+class Superhero:
+    def __init__(self, name, power, team):
+        self.name = name
+        self.power = power
+        self.team = team
+
+    def introduce(self):
+        return f"I am {self.name}, a member of {self.team}. My power is {self.power}!"
+
+
+class FlyingHero(Superhero):
+    def __init__(self, name, power, team, flight_speed):
+        super().__init__(name, power, team)  # Calls the parent constructor
+        self.flight_speed = flight_speed
+
+    def fly(self):
+        return f"{self.name} is flying at {self.flight_speed} km/h!"
+
+
+hero1 = Superhero("Thunderstrike", "Lightning Manipulation", "Guardians")
+hero2 = FlyingHero("Skywing", "Aerokinesis", "Storm League", 500)
+
+
+print(hero1.introduce())  # Output: I am Thunderstrike, a member of Guardians...
+print(hero2.introduce())  # Output: I am Skywing, a member of Storm League...
+print(hero2.fly())  # Output: Skywing is flying at 500 km/h!
+
+# question 2
+class Vehicle:
+    def move(self):
+        return "The vehicle moves forward."
+
+
+class Car(Vehicle):
+    def move(self):
+        return "🚗 Driving on the road!"
+
+class Plane(Vehicle):
+    def move(self):
+        return "✈️ Flying in the sky!"
+
+class Boat(Vehicle):
+    def move(self):
+        return "🚢 Sailing on the water!"
+
+
+car = Car()
+plane = Plane()
+boat = Boat()
+
+
+vehicles = [car, plane, boat]
+
+for v in vehicles:
+    print(v.move())  # Each class defines move() in its own way!
